@@ -1,0 +1,82 @@
+If docker is not running see the error:
+
+sudo journalctl -xeu docker.service
+sudo dockerd --debug
+sudo systemctl stop docker
+ip link show | grep docker
+sudo ip link delete docker0
+sudo rm -rf /var/lib/docker/network
+
+
+
+sudo systemctl status docker
+
+Docker architecture
+Dockerfile → Image → Container
+
+
+Dockerfile: Recipe to build the image
+
+Image: Read-only snapshot
+
+Container: Running instance of the image
+
+🔹 Layers & caching:
+
+Each Dockerfile instruction creates a layer
+
+Layers are cached → rebuild is faster
+
+| Aspect  | Image      | Container     |
+| ------- | ---------- | ------------- |
+| State   | Read-only  | Read/write    |
+| Start   | Build once | Run many      |
+| Storage | Disk       | Memory + Disk |
+
+docker ps          # Running containers
+docker ps -a       # All containers
+docker stop <name> # Stop container
+docker rm <name>   # Remove container
+
+Docker Hub
+
+Public registry for images
+
+Pull prebuilt images, e.g., nginx, node, mongo
+
+Push your own images after building
+
+docker pull nginx
+docker push myusername/myimage:tag
+
+TO CHECK RUNNING PROCESS:
+sudo lsof -i :3000
+
+
+DOCKER:
+create a simple nestjs app
+install package.json
+npm run start:dev
+
+
+1)create a docker file
+
+2)Build the Docker image
+docker build -t nestjs-app .
+-t nestjs-app → tag for your image
+
+. → current folder (Dockerfile location)
+
+3)docker images
+shows the created images
+
+4)Run the container
+docker run -d -p 3000:3000 --name nestjs-container nestjs-app
+
+-d → run in background
+
+-p 3000:3000 → host:container port mapping
+
+--name → give a friendly name
+nestjs-container --setting container name
+nestjs-app: image name that needs to run
