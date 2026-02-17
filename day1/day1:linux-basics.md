@@ -3,7 +3,10 @@ creation of github acct
 Pushing to github:
 git push https://bhatkpooja8@github.com/bhatkpooja8/nestjs-backend-project.git main
 
-git push -u https://bhatkpooja8@github.com/bhatkpooja8/devops-daily-learning.git master:main
+git push -u https://bhatkpooja8@github.com/bhatkpooja8/devops-daily-learning.git main
+
+git pull --rebase https://bhatkpooja8@github.com/bhatkpooja8/devops-daily-learning.git main
+
 
 repo created
 using nano created this file
