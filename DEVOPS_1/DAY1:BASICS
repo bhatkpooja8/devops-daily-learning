@@ -80,3 +80,9 @@ docker run -d -p 3000:3000 --name nestjs-container nestjs-app
 --name → give a friendly name
 nestjs-container --setting container name
 nestjs-app: image name that needs to run
+
+Step 5 — Check logs
+docker logs nestjs-container
+
+
+Useful for debugging runtime errors inside container
